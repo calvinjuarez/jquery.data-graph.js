@@ -25,10 +25,10 @@
 	}
 	
 	Graph.DEFAULTS = {
-		  scale  : 100           // numeric values or "%"; defaults to 100; "%" is an alias for 100
-		, type   : 'bar'         // a type or a custom type object; defaults to 'bar'
-		, rubric : 'proficiency' // a rubric name, an array of grades (low to high), or false; defaults to 'proficiency'
-		, legend : false         // a boolean; defaults to false
+		  scale  : 100    // numeric values or "%"; defaults to 100; "%" is an alias for 100
+		, type   : 'bar'  // a type or a custom type object; defaults to 'bar'
+		, rubric : false  // a rubric name, an array of grades (low to high), or false; defaults to 'quality'
+		, legend : false  // a boolean; defaults to false
 	}
 	
 	Graph.TYPES = {
