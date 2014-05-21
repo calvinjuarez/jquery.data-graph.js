@@ -35,14 +35,14 @@
 			, className : 'graph graph-bar'
 			, template  : $('#bar-template')[0] ?
 				  $('#bar-template').html()
-				: '<div class="item bar bar-{{index}} grade-{{grade.index}}" style="width:{{percent}}%;" title="{{grade.name}}"><span class="label">{{text}}</span></div>'
+				: '<div class="bar bar-{{index}} grade-{{grade.index}}" style="width:{{percent}}%;" title="{{grade.name}}"><span class="label">{{text}}</span></div>'
 		}
 		, dot: {
 			  name      : 'dot'
 			, className : 'graph graph-dot'
 			, template  : $('#dot-template')[0] ?
 				  $('#dot-template').html()
-				: '<div class="item dot dot-{{index}} grade-{{grade.index}}" style="position:relative;left:{{percent}}%;" title="{{grade.name}}"><span class="label">{{text}}</span></div>'
+				: '<span class="label">{{text}}</span><div class="dot dot-{{index}} grade-{{grade.index}}" style="position:absolute;left:{{percent}}%;" title="{{grade.name}}"></div>'
 		}
 	}
 	
