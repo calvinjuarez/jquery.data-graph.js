@@ -14,9 +14,13 @@
 		this.type     = Graph.TYPES[this.options.type] || this.options.type || Graph.TYPES.bar
 		this.rubric   = this.options.rubric ? Graph.RUBRICS[this.options.rubric] || this.options.rubric || Graph.RUBRICS.quality : false
 		
+		// Correct/Validate
 		if (this.options.scale === '%') this.options.scale = 100
+		
+		// Set Up
 		this.$element.addClass(this.type.className)
 		
+		// Draw
 		return this.draw()
 	}
 	
@@ -42,6 +46,22 @@
 		, quality     : ['poor','fair','good','great','excellent']                          // 5 Grades
 		, schoolBasic : ['F','D','C','B','A']																// 5 Grades
 		, schoolPlus  : ['F','D-','D','D+','C-','C','C+','B-','B','B+','A-','A','A+']			// 13 Grades
+	}
+	
+	Graph.prototype.draw = function () {
+		var items    = this.getItems()
+		var template = this.type.template
+		
+		Mustache.parse(template)
+		
+		this.$element.find('[data-value]').each(function (i,item) {
+			$(item).html(Mustache.render(template,items[i]))
+		})
+		
+		if (this.options.legend)
+			this.$element.after(this.getLegend())
+		
+		return this
 	}
 	
 	Graph.prototype.getItems = function () {
@@ -82,22 +102,6 @@
 				return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
 			})
 		}
-	}
-	
-	Graph.prototype.draw = function () {
-		var items    = this.getItems()
-		var template = this.type.template
-		
-		Mustache.parse(template)
-		
-		this.$element.find('[data-value]').each(function (i,item) {
-			$(item).html(Mustache.render(template,items[i]))
-		})
-		
-		if (this.options.legend)
-			this.$element.after(this.getLegend())
-		
-		return this
 	}
 	
 	Graph.prototype.getLegend = function () {
