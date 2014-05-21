@@ -11,6 +11,7 @@
 	var Graph = function (element, options) {
 		this.options  = $.extend({}, Graph.DEFAULTS, options)
 		this.$element = $(element)
+		this.origHTML = this.$element.html()
 		this.type     = Graph.TYPES[this.options.type] || this.options.type || Graph.TYPES.bar
 		this.rubric   = this.options.rubric ? Graph.RUBRICS[this.options.rubric] || this.options.rubric : false
 		// Correct/Validate
@@ -113,6 +114,12 @@
 		})
 		
 		return $legend
+	}
+	
+	Graph.prototype.undraw = function () {
+		this.$legend.remove()
+		this.$element.html(this.origHTML)
+		delete this.$element.data().graph
 	}
 
 
