@@ -42,10 +42,11 @@
 	}
 	
 	Graph.RUBRICS = {
-		  proficiency : ['limited','beginner','comfortable','proficient','very proficient'] // 5 Grades
-		, quality     : ['poor','fair','good','great','excellent']                          // 5 Grades
-		, schoolBasic : ['F','D','C','B','A']																// 5 Grades
-		, schoolPlus  : ['F','D-','D','D+','C-','C','C+','B-','B','B+','A-','A','A+']			// 13 Grades
+		  none         : null
+		, proficiency  : ['limited','beginner','comfortable','proficient','very proficient'] // 5 Grades
+		, quality      : ['poor','fair','good','great','excellent']                          // 5 Grades
+		, letterGrades : ['F','D','C','B','A']                                               // 5 Grades
+		, scholastic   : ['F','D-','D','D+','C-','C','C+','B-','B','B+','A-','A','A+']       // 13 Grades
 	}
 	
 	Graph.prototype.draw = function () {
