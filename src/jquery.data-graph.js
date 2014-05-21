@@ -79,18 +79,12 @@
 			var item  = {}
 			
 			item.index   = i + 1
-			item.tag     = 'div'
 			item.text    = $item.text().trim()
 			item.value   = $item.data('value')
 			item.percent = $item.data('value') / scale * 100
 			item.grade   = {}
-			item.grade.index = rubric ? Math.floor(item.percent / (100 / rubric.length))                                        : item.value
+			item.grade.index = rubric ? Math.floor(item.percent / (100 / rubric.length)) : item.value
 			item.grade.name  = rubric ? toTitleCase(rubric[item.grade.index - 1].replace(/-/g,'-minus').replace(/\+/g,'-plus')) : item.value + "/" + scale
-			
-			if ($item.find('a')[0]) {
-				item.tag  = 'a'
-				item.href = $item.find('a')[0] ? $item.find('a').attr('href') : null
-			}
 			
 			items[i] = item
 		})
