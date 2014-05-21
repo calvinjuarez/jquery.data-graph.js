@@ -111,8 +111,7 @@
 	}
 	
 	Graph.prototype.undraw = function () {
-		console.log(this.$legend)
-		// this.$legend.remove()
+		this.$legend && this.$legend.remove()
 		this.$element.html(this.origHTML)
 		delete this.$element.data().graph
 	}
