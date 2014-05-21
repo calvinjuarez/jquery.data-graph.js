@@ -132,7 +132,7 @@
 		return this.each(function () {
 			var $this   = $(this)
 			var data    = $this.data('graph')
-			var options = typeof option === 'object' && option
+			var options = $.extend({}, Graph.DEFAULTS, $this.data(), typeof option === 'object' && option)
 
 			if (!data) $this.data('graph', (data = new Graph(this,options)))
 			if (typeof option === 'string') data[option]()
