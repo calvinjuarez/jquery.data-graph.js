@@ -13,13 +13,10 @@
 		this.$element = $(element)
 		this.type     = Graph.TYPES[this.options.type] || this.options.type || Graph.TYPES.bar
 		this.rubric   = this.options.rubric ? Graph.RUBRICS[this.options.rubric] || this.options.rubric : false
-		
 		// Correct/Validate
 		if (this.options.scale === '%') this.options.scale = 100
-		
 		// Set Up
 		this.$element.addClass(this.type.className)
-		
 		// Draw
 		return this.draw()
 	}
