@@ -6,7 +6,7 @@
 
 
 
-+function ($) {
++function ($,Mustache) {
 
 	var Graph = function (element, options) {
 		this.options  = $.extend({}, Graph.DEFAULTS, options)
@@ -157,4 +157,4 @@
 		})
 	})
 
-}(jQuery);
+}(jQuery,Mustache);
