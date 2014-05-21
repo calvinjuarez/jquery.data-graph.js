@@ -25,10 +25,10 @@
 	}
 	
 	Graph.DEFAULTS = {
-		  scale  : 100    // numeric values or "%"; defaults to 100; "%" is an alias for 100
-		, type   : 'bar'  // a type or a custom type object; defaults to 'bar'
-		, rubric : false  // a rubric name, an array of grades (low to high), or false; defaults to 'quality'
-		, legend : false  // a boolean; defaults to false
+		  scale  : 100   // numeric values or "%"; defaults to 100; "%" is an alias for 100
+		, type   : 'bar' // a type or a custom type object; defaults to 'bar'
+		, rubric : false // a rubric name, an array of grades (low to high), or false; defaults to 'quality'
+		, legend : false // a boolean; defaults to false
 	}
 	
 	Graph.TYPES = {
@@ -71,20 +71,20 @@
 		
 		this.$element.find('[data-value]').each(function (i,v) {
 			var $item = $(v)
-			var item = {}
+			var item  = {}
 			
-			item.index    = i + 1
-			item.tag      = 'div'
-			item.text     = $item.text().trim()
-			item.value    = $item.data('value')
-			item.percent  = $item.data('value') / scale * 100
+			item.index   = i + 1
+			item.tag     = 'div'
+			item.text    = $item.text().trim()
+			item.value   = $item.data('value')
+			item.percent = $item.data('value') / scale * 100
 			item.grade   = {}
 			item.grade.index = rubric ? Math.floor(item.percent / (100 / rubric.length))                                        : item.value
 			item.grade.name  = rubric ? toTitleCase(rubric[item.grade.index - 1].replace(/-/g,'-minus').replace(/\+/g,'-plus')) : item.value
 			
 			if ($item.find('a')[0]) {
-				item.tag   = 'a'
-				item.href  = $item.find('a')[0] ? $item.find('a').attr('href') : null
+				item.tag  = 'a'
+				item.href = $item.find('a')[0] ? $item.find('a').attr('href') : null
 			}
 			
 			items[i] = item
@@ -123,7 +123,7 @@
 			var data    = $this.data('graph')
 			var options = typeof option === 'object' && option
 
-			if (!data) $this.data('graph', (data = new Graph(this, options)))
+			if (!data) $this.data('graph', (data = new Graph(this,options)))
 			if (typeof option === 'string') data[option]()
 		})
 	}
