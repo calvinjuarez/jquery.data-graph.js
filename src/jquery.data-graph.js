@@ -110,7 +110,7 @@
 		$legend.append($('<ul class="legend-content"></ul>'))
 		$.each(this.rubric, function (i,grade) {
 			$legend.find('.legend-content')
-				.append($('<li><i class="swatch grade-' + i + '"></i><span class="label">' + grade + '</span></li>'))
+				.append($('<li><i class="swatch grade-' + (i + 1) + '"></i><span class="label">' + grade + '</span></li>'))
 		})
 		
 		return (this.$legend = $legend) // keeps track of the legend associated with this graph
