@@ -36,6 +36,13 @@
 				  $('#bar-template').html()
 				: '<div class="item bar bar-{{index}} grade-{{grade.index}}" style="width:{{percent}}%;" title="{{grade.name}}"><span class="label">{{text}}</span></div>'
 		}
+		, dot: {
+			  name      : 'dot'
+			, className : 'graph graph-dot'
+			, template  : $('#dot-template')[0] ?
+				  $('#dot-template').html()
+				: '<div class="item dot dot-{{index}} grade-{{grade.index}}" style="position:relative;left:{{percent}}%;" title="{{grade.name}}"><span class="label">{{text}}</span></div>'
+		}
 	}
 	
 	Graph.RUBRICS = {
