@@ -113,7 +113,7 @@
 				.append($('<li><i class="swatch grade-' + i + '"></i><span class="label">' + grade + '</span></li>'))
 		})
 		
-		return $legend
+		return (this.$legend = $legend) // keeps track of the legend associated with this graph
 	}
 	
 	Graph.prototype.undraw = function () {
