@@ -63,7 +63,7 @@
 			$(item).html(Mustache.render(template,items[i]))
 		})
 		
-		if (this.options.legend)
+		if (this.options.legend && ! this.$legend) // only append a legend once
 			this.$element.after(this.getLegend())
 		
 		return this
