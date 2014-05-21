@@ -78,14 +78,9 @@
 			item.text     = $item.text().trim()
 			item.value    = $item.data('value')
 			item.percent  = $item.data('value') / scale * 100
-			
-			if (rubric) {
-				item.grade = {}
-				item.grade.index = Math.floor(item.percent / (100 / rubric.length))
-				item.grade.name  = toTitleCase.call(rubric[item.grade.index - 1])
-					.replace(/-/g,'-minus')
-					.replace(/\+/g,'-plus')
-			}
+			item.grade   = {}
+			item.grade.index = rubric ? Math.floor(item.percent / (100 / rubric.length))                                        : item.value
+			item.grade.name  = rubric ? toTitleCase(rubric[item.grade.index - 1].replace(/-/g,'-minus').replace(/\+/g,'-plus')) : item.value
 			
 			if ($item.find('a')[0]) {
 				item.tag   = 'a'
@@ -97,8 +92,8 @@
 		
 		return items
 		
-		function toTitleCase() {
-			return this.replace(/\w\S*/g, function (txt) {
+		function toTitleCase(string) {
+			return string.replace(/\w\S*/g, function (txt) {
 				return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
 			})
 		}
