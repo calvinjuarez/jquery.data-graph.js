@@ -99,9 +99,8 @@
 	}
 	
 	Graph.prototype.getLegend = function () {
-		var $legend = $('<aside class="legend"></aside>')
+		var $legend = $('<aside class="legend"><ul class="legend-content"></ul></aside>')
 		
-		$legend.append($('<ul class="legend-content"></ul>'))
 		$.each(this.rubric, function (i,grade) {
 			$legend.find('.legend-content')
 				.append($('<li><i class="swatch grade-' + (i + 1) + '"></i><span class="label">' + grade + '</span></li>'))
